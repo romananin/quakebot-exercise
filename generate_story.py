@@ -21,9 +21,9 @@ def main():
 
     kwargs = {
         'title': 'Daily earthquake report',
-        #TODO: Experiment with different hard-coded values
+        # TODO: Experiment with different hard-coded values
         # to ensure your template logic works for all scenarios!
-        'num_large_quakes_yesterday': random.randint(5,10),
+        'num_large_quakes_yesterday': random.randint(5, 10),
         'large_quakes': large_quakes[0:5],
         'large_quakes_count': len(large_quakes),
         'num_quakes': len(data),
@@ -33,9 +33,11 @@ def main():
     # Write the template to a local file called daily_quake_alert.html
     write_story(compiled_text)
 
+
 def story_template():
     with open('story_template.html') as f:
         return f.read()
+
 
 def sort_quakes(earthquakes):
     return sorted(
@@ -44,9 +46,11 @@ def sort_quakes(earthquakes):
         reverse=True
     )
 
+
 def usgs_data():
     with open('usgs_all_day.geojson') as f:
         return json.load(f)['features']
+
 
 def write_story(text):
     with open('daily_quake_alert.html', 'w') as f:
